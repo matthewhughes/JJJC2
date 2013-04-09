@@ -1,3 +1,4 @@
+import java.text.BreakIterator;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,19 +16,46 @@ public class Iterate {
       return Items;
     }
 
-    public static void IterateThroughList(List<String> Items){
+    public static void IterateThroughList(List<String> Items, String FileName){
         String[] ByteCode = null;
+        String Value;
         for(String S : Items){
             ByteCode = S.split(":");
+            OpCodes OP = new OpCodes(); //pan gangnam style
+            FileWrite FW = new FileWrite();
 
+            if(ByteCode[0].equals("ADD")){
+               Value = OP.ADD(ByteCode[1]);
+               FW.WriteLine(FileName, Value);
+            } else if (ByteCode[0].equals("SUB")){
+                Value = OP.SUB(ByteCode[1]);
+                FW.WriteLine(FileName, Value);
+            } else if (ByteCode[0].equals("MUL")){
+                Value = OP.MUL(ByteCode[1]);
+                FW.WriteLine(FileName, Value);
+            } else if (ByteCode[0].equals("STP")) {
+                Value = OP.STP();
+                FW.WriteLine(FileName, Value);
+            } else if (ByteCode[0].equals("STD")){
+                Value = OP.STD(ByteCode[1]);
+                FW.WriteLine(FileName, Value);
+            } else if (ByteCode[0].equals("LDI")){
+                Value = OP.LDI(ByteCode[1]);
+                FW.WriteLine(FileName, Value);
+            } else if(ByteCode[0].equals("LDD")){
+                Value =  OP.LDD(ByteCode[0]);
+                FW.WriteLine(FileName, Value);
+            } else if(ByteCode[0].equals("SQR")){
+                Value =  OP.SQR(ByteCode[0]);
+                FW.WriteLine(FileName, Value);
+            } else{
+                FW.WriteLine(FileName, "Things went a bit Pete Tong. Check your source code and try again");
+                FW.WriteLine(FileName, "The offending line is: " + ByteCode[0] + " " + ByteCode[1]);
+                System.out.println("Things went wrong. Have a look at the output, fix things and try again");
+                System.out.println("Your output is located at: " + FileName);
+                System.exit(1);
 
-            if(ByteCode[0] == "ADD"){
-
-            } else if (ByteCode[0] == "SUB"){
-
-            } else if (ByteCode[0] == "ADD"){
-
-            } else {
+            }
 
         }
     }
