@@ -21,6 +21,8 @@ public class Iterate {
         String Value;
         for(String S : Items){
             ByteCode = S.split(":");
+            ByteCode[0] = ByteCode[0].substring(0, Math.min(ByteCode[0].length(), 3));
+            System.out.println("Length: " + ByteCode[0].length() + ":" + ByteCode[0] + ":");
             OpCodes OP = new OpCodes(); //pan gangnam style
             FileWrite FW = new FileWrite();
 

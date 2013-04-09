@@ -6,11 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 public class ProcessFile {
-    public String TrimWhiteSpace(String UnprocessedData){
-        return UnprocessedData.replace(" ", "");
-    }
+
     public String TrimTabs(String UnprocessedData){
-        return UnprocessedData.replace("    ", "");
+        return UnprocessedData.trim();
     }
     public String TrimLeftCurly(String UnprocessedData){
         return UnprocessedData.replace("{", "");
