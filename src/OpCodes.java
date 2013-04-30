@@ -18,23 +18,23 @@ public class OpCodes {
     }
 
     public static String LDI(String Value){
-        return "002" + Value;
+        return "003" + Value;
     }
 
     public static String ADD(String Value){
-        return "003" + Value;
-    }
-
-    public static String SUB(String Value){
-        return "003" + Value;
-    }
-
-    public static String MUL(String Value){
         return "004" + Value;
     }
 
-    public static String SQR(String Value){
+    public static String SUB(String Value){
         return "005" + Value;
+    }
+
+    public static String MUL(String Value){
+        return "006" + Value;
+    }
+
+    public static String SQR(String Value){
+        return "007" + Value;
     }
 
 }
